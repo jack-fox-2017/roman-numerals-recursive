@@ -1,6 +1,14 @@
-function to_roman(input) {
-  // start your code here
-  return to_roman(input); 
+function to_roman(input,result=' ') {
+  var roman = ['M','D','CD','C','L','XL','X','IX','V','IV','I']
+  var arabic = [1000,500,400,100,50,40,10,9,5,4,1]
+
+  for (i = 0;i<=arabic.length;i++) {
+      while(input>=arabic[i]){
+        result+=roman[i];
+        return to_roman(input-arabic[i],result);
+      }
+  }
+    return result
 }
 
 console.log('My totally sweet testing script for new roman\n')
