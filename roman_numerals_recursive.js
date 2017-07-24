@@ -1,6 +1,14 @@
-function to_roman(input) {
+function to_roman(input, result="") {
   // start your code here
-  return to_roman(input); 
+  let des = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let romanValue = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  for (let i = 0; i < des.length; i++) {
+    while (input >= des[i]) {
+      result += romanValue[i];
+      return to_roman(input-des[i], result);
+    }
+  }
+  return result;
 }
 
 console.log('My totally sweet testing script for new roman\n')
