@@ -1,6 +1,15 @@
 function to_roman(input) {
   // start your code here
-  return to_roman(input); 
+  var rom = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  var ara = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+
+  for (var i = 0; i < ara.length; i++) {
+    if(input < 1)
+      return "";
+    if(input >= ara[i]) {
+      return rom[i] + to_roman(input - ara[i]);
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
