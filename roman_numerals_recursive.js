@@ -1,7 +1,16 @@
 function to_roman(input) {
-  // start your code here
-  return to_roman(input); 
+  let decimal = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+  let romawi  = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+  let tampung = '';
+
+      for (let i = romawi.length+1; i >= 0; i--) {
+        if( input === 0 ) return tampung;
+        if (input >= decimal[i]) {
+          return  tampung += romawi[i] + to_roman(input - decimal[i]);
+        }
+      }
 }
+
 
 console.log('My totally sweet testing script for new roman\n')
 console.log('input | expected | actual')
