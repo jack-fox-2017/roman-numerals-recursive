@@ -1,6 +1,28 @@
-function to_roman(input) {
+function to_roman(input, isi = '') {
   // start your code here
-  return to_roman(input); 
+  var roman = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  };
+  for (i in roman) {
+    if (input >= roman[i]) {
+      isi += i;
+      input = input - roman[i];
+      return to_roman(input, isi)
+    }
+  }
+  return isi;
 }
 
 console.log('My totally sweet testing script for new roman\n')
