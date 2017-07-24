@@ -1,6 +1,21 @@
-function to_roman(input) {
+function to_roman(input,temp) {
   // start your code here
-  return to_roman(input); 
+  if(temp===undefined){var temp =[];}
+  var digit = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  var roman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+
+  for (var i = 0; i < digit.length; i++) {
+    if(digit[i]<=input) {
+        temp.push(roman[i]);
+        input = input - digit[i];
+    }
+  }
+  if(input !== 0){
+    return to_roman(input,temp);
+  } else {
+    joinTemp = temp.join('');
+    return joinTemp;
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
