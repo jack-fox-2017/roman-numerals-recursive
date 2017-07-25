@@ -4,10 +4,16 @@ function to_roman(input, result='') {
   let roman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
 
   for(let i=0;i<digit.length;i++){
-    while(input % digit[i] < input){
-      result += roman[i];
-      return to_roman(input - digit[i], result);
+    //while(input % digit[i] < input){
+    if(input===0){
+      return result;
     }
+    else if(input>=digit[i]){
+      result += roman[i];
+      return to_roman(input - digit[i],result);
+    }
+
+    //}
   }
   return result;
 }
